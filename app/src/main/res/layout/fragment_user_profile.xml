@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.user_profile">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/circleImageView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:src="@drawable/ic_launcher_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="NAME OF THE USER"
+        app:layout_constraintEnd_toEndOf="@+id/circleImageView"
+        app:layout_constraintStart_toStartOf="@+id/circleImageView"
+        app:layout_constraintTop_toBottomOf="@+id/circleImageView" />
+
+    <TextView
+        android:id="@+id/username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="USERNAME OF THE USER"
+        app:layout_constraintEnd_toEndOf="@+id/name"
+        app:layout_constraintStart_toStartOf="@+id/name"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
+
+    <LinearLayout
+        android:id="@+id/BIO"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:weightSum="2"
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/username"
+        app:layout_constraintStart_toStartOf="@+id/username"
+        app:layout_constraintTop_toBottomOf="@+id/username" >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Bio: " />
+        <TextView
+            android:id="@+id/txtBio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:ellipsize="end"
+            android:text="There Once Was" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="@+id/BIO"
+        app:layout_constraintStart_toStartOf="@+id/BIO"
+        app:layout_constraintTop_toBottomOf="@+id/BIO">
+
+        <LinearLayout
+            android:id="@+id/PublicRepo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2"
+            android:layout_margin="5dp"
+            android:padding="5dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@+id/BIO"
+            app:layout_constraintStart_toStartOf="@+id/BIO"
+            app:layout_constraintTop_toBottomOf="@+id/BIO" >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Public Repos: " />
+            <TextView
+                android:id="@+id/txtPR"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="***" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/PublicGits"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2"
+            android:orientation="horizontal"
+            android:layout_margin="5dp"
+            android:padding="5dp"
+            app:layout_constraintEnd_toEndOf="@+id/PublicRepo"
+            app:layout_constraintStart_toStartOf="@+id/PublicRepo"
+            app:layout_constraintTop_toBottomOf="@+id/PublicRepo" >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="0.5"
+                android:text="Public Gits: " />
+            <TextView
+                android:id="@+id/txtPG"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1.5"
+                android:text="***" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/PrivateRepos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2"
+            android:layout_margin="5dp"
+            android:padding="5dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@+id/PublicGits"
+            app:layout_constraintStart_toStartOf="@+id/PublicGits"
+            app:layout_constraintTop_toBottomOf="@+id/PublicGits" >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Private Repos: " />
+            <TextView
+                android:id="@+id/txtPrR"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="***" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
