@@ -1,5 +1,6 @@
 package com.mahmudur.gitcommitviewer.utils
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,9 +36,11 @@ class CommitAdapter : PagingDataAdapter<dataModel.Commit, CommitAdapter.CommitVi
         fun bind(commit: dataModel.Commit) {
             commitMessageTextView.text = commit.message
             committerLoginTextView.text = commit.committer.login
-
+            
+            Log.d("committerLoginTextView", commit.committer.login);
+            Log.d("commitMessageTextView", commit.message);
             Glide.with(itemView)
-                .load(commit.committer.avatarUrl)
+                .load(commit.committer.avatar_url)
                 .into(committerAvatarImageView)
         }
     }
