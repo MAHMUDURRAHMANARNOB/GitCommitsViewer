@@ -10,6 +10,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.PagingData
@@ -21,8 +22,10 @@ import com.mahmudur.gitcommitviewer.model.dataModel
 import com.mahmudur.gitcommitviewer.utils.CommitAdapter
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.collect
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity()/*, CommitAdapter.OnAvatarClickListener */ {
 
     private val commitViewModel: CommitViewModel by viewModels()
 
@@ -30,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val commitAdapter = CommitAdapter()
+        val commitAdapter = CommitAdapter(/*this*/)
 
         val recyclerView: RecyclerView = findViewById(R.id.commitsRV)
         recyclerView.apply {
@@ -43,6 +46,14 @@ class MainActivity : AppCompatActivity() {
                 commitAdapter.submitData(pagingData)
             }
         }
-
     }
+
+    /*override fun onAvatarClick(committer: dataModel.Committer) {
+        *//*val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.findNavController()
+
+        val action = MainFragmentDirections.actionMainFragmentToCommitterFragment(committer.login)
+        navController.navigate(action)*//*
+        Toast.makeText(this, "text", Toast.LENGTH_SHORT).show();
+    }*/
 }

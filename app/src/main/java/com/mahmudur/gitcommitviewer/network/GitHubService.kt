@@ -10,4 +10,11 @@ interface GitHubService {
         @Query("page") page: Int,
         @Query("per_page") perPage: Int
     ): List<dataModel.Commit>
+
+
+    /*@GET("users/")
+    suspend fun getUserDetails(
+        @Query("page") page: Int,
+        @Query("per_page") perPage: Int
+    ): List<dataModel.Commit>*/
 }

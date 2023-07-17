@@ -13,7 +13,7 @@ import com.bumptech.glide.Glide
 import com.mahmudur.gitcommitviewer.R
 import com.mahmudur.gitcommitviewer.model.dataModel
 
-class CommitAdapter : PagingDataAdapter<dataModel.Commit, CommitAdapter.CommitViewHolder>(COMMIT_COMPARATOR) {
+class CommitAdapter /*(private val onAvatarClickListener: OnAvatarClickListener)*/ : PagingDataAdapter<dataModel.Commit, CommitAdapter.CommitViewHolder>(COMMIT_COMPARATOR) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CommitViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -34,11 +34,14 @@ class CommitAdapter : PagingDataAdapter<dataModel.Commit, CommitAdapter.CommitVi
         private val committerAvatarImageView: ImageView = itemView.findViewById(R.id.committerAvatarImageView)
 
         fun bind(commit: dataModel.Commit) {
-            commitMessageTextView.text = commit.message
+            commitMessageTextView.text = commit.commit.message
             committerLoginTextView.text = commit.committer.login
-            
-            Log.d("committerLoginTextView", commit.committer.login);
-            Log.d("commitMessageTextView", commit.message);
+            if (!commit.equals(null)){
+                Log.d("commitMessageTextView", commit.toString());
+                Log.d("committerLoginTextView", commit.committer.login);
+            }
+
+//            Log.d("commitMessageTextView", commit.message);
             Glide.with(itemView)
                 .load(commit.committer.avatar_url)
                 .into(committerAvatarImageView)
@@ -56,4 +59,8 @@ class CommitAdapter : PagingDataAdapter<dataModel.Commit, CommitAdapter.CommitVi
             }
         }
     }
+
+    /*interface OnAvatarClickListener {
+        fun onAvatarClick(committer: dataModel.Committer)
+    }*/
 }
